@@ -2,18 +2,17 @@
 Tecnologia Multimedial 1
  Comisión 1
  Prof. Jose Luis Bugiolachi
- Trabajo Práctico N°4
+ Trabajo Práctico N°5
  Alumna Laura Morays 
  Legajo: 88223/0
-Video 
-https://youtu.be/AnVpbfdtmA4
+
  */
 
 
 
 Principal pri;
 void setup() {
-  size(640, 500);
+  size(600, 500);
   pri = new Principal();
 }
 void draw () {
