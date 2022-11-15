@@ -1,10 +1,8 @@
 class Manzana {
   PImage [] man =new PImage [2];
   float despMx, despMy;
-  Vida v;
 
   Manzana() {
-    v = new Vida();
     for (int i=0; i<2; i++) {
       man[i]=loadImage("man" +i+".png");
     }
@@ -30,8 +28,8 @@ class Manzana {
     if (despMy > height) {
       despMy= 0;   
       despMx = int(random(width - 50));
-      
-      v.dibujarCora();
+     
+    
     }
   }
 }

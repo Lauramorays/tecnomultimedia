@@ -1,6 +1,5 @@
 class Fondo {
   int  contador;
-  float desp;
   PImage arbol, regresar, cruz;
 
   Manzana man;
@@ -11,7 +10,7 @@ class Fondo {
     man= new Manzana();
     cana = new  Canasta();
     v= new Vida();
-    contador=3;
+    contador=0;
     arbol=loadImage("arbol.jpg");
     cruz=loadImage("cruz.png");
     regresar=loadImage("regresar.png");
@@ -23,7 +22,7 @@ class Fondo {
   }
 
   void pantallas() {
-    if (contador==0) {  /////////////////////INICIO 
+    if (contador==0) {                        /////////////////////INICIO DE PANTALLA
       cambiarPantalla();
       background(10, 255, 100);   
       fill(5, 255, 5);
@@ -39,18 +38,19 @@ class Fondo {
       textSize(30);
       textAlign(CENTER);
       text("Intruciones", 300, 260);
-    } else if  (contador==1) {    ////////////////////////// JUEGO 
+    } else if  (contador==1) {                    ////////////////////////// PANTALLA DE JUEGO 
+      cambiarPantalla();
       image(arbol, 0, 0, width, height);
       man.dibujarMan();
       cana.dibujarCana();
       v.dibujarCora();
-    } else if (contador==2) {   ////////////// /////INTRUCIONES 
+    } else if (contador==2) {                                       ///// /////INTRUCIONES 
       cambiarPantalla();
       background(255, 255, 92);
       textSize(25);
       textAlign(CENTER);
       text("CREDITOS", width/2, height/2);
-    } else if (contador==3) {   ////////////// ///// CREDITOS  
+    } else if (contador==3) {                                        ////////////// ///// CREDITOS  
       cambiarPantalla();
       background(255, 255, 92);
       textSize(25);
@@ -59,9 +59,9 @@ class Fondo {
       image(regresar, 508, 457, 40, 30);
       image(cruz, 562, 457, 40, 30);
     }
-  }//final de pan
+  }                                                        ////FINAL DE PANTALLA 
 
-  void CheckearColisiones() {
+  void CheckearColisiones() {                              ////COLISIONES
     float cx = cana.moCanaX - 55;
     float cy = cana.moCanaY - 55;
     float mx = man.despMx - 25;
@@ -69,11 +69,16 @@ class Fondo {
     if (mx>cx && mx < cx + 110 && my > cy && my < cy + 110) {
       man.despMy= 0;  
       man.despMx = int(random(width - 50));
-    } else if (man.despMy >height) {
-      v.restarCora();
     }
   }
-  void cambiarPantalla() {
+
+
+  void cambiarPantalla() {                                  /////CAMBIAR PANTALLA 
+    if ( v.cora==0) {
+      contador=3;
+      v.cora=3;
+    }
+
     if (mousePressed) {
       if (mouseX>150 && mouseX <450 && mouseY > 100 && mouseY< 190) { // al precionar jugar 
         contador=1;

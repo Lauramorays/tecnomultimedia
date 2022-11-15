@@ -13,8 +13,9 @@ Tecnologia Multimedial 1
 Principal pri;
 void setup() {
   size(600, 500);
-  pri = new Principal();
+  f = new Fondo();
+ 
 }
 void draw () {
-  pri.dibujar();
+  f.dibujarFondo();
 }
