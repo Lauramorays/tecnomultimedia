@@ -2,15 +2,15 @@ class Vida {
   PImage [] corazon = new PImage [4];
   int cora=3;
   Manzana man;
+
   
   Vida() {
+
     man = new Manzana();
     for (int i=0; i<4; i++) {
       corazon[i]=loadImage("cora" +i+".png");
     }
   }
-
-
 
   void restarCora() {
     if (man.despMy > height) {
@@ -21,7 +21,7 @@ class Vida {
 
 
   void dibujarCora() {
-    man.despMy+=9;
+    man.despMy+=4;
     restarCora();
     if (cora==3) {
       image(corazon[0], 10, 5, 220, 220);
@@ -34,6 +34,9 @@ class Vida {
     }
     if (cora==0) {
       image(corazon[3], 10, 5, 220, 220);
+
+  
+      
      
     }
   }
